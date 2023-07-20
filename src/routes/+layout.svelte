@@ -8,13 +8,22 @@
 	import { writable } from 'svelte/store'
 
 	import { Card } from '$lib/components/components';
+	import { onMount } from 'svelte'
 	
 	export const lightMode = writable(false);
+	
 
-	if (typeof localStorage !== 'undefined') {
-		lightMode.set(localStorage['lightMode'] === 'true' || false)
-		lightMode.subscribe((value) => localStorage['lightMode'] = value)
-	}
+	onMount(async () => {
+		
+		if (typeof localStorage !== 'undefined') {
+			lightMode.set(localStorage['lightMode'] === 'true' || false)
+			lightMode.subscribe((value) => localStorage['lightMode'] = value)
+		}
+
+		lightMode.set(window.matchMedia('(prefers-color-scheme: light)').matches)
+
+	})
+
 
 </script>
 

@@ -6,9 +6,35 @@
 		{ title: "Color", url: "/color" },
 		{ title: "code", url: "/code" },
   	];
+	export let sidebarOpen = false;
 </script>
 
-<header class="flex justify-center w-screen ">
+<header class="md:invisible">
+	<button on:click={() => sidebarOpen = !sidebarOpen} >
+		HAM
+	</button>
+	<div class="top-0 left-0 h-full w-1/2 rounded-xl border-r-2 shadow-lg bg-surface1  ease-in-out duration-300 fixed {!sidebarOpen ?  "translate-x-0 " : "-translate-x-full"}">
+		<button on:click={() => sidebarOpen = !sidebarOpen}>
+			HAM
+		</button>
+		<nav class="p-12 text-xl flex flex-col">
+			{#each links as link}
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<a 
+				class="active:brightness-110 hover:brightness-100 rounded-3xl 
+					{$page.url.pathname === link.url ? 'bg-flamingo active:bg-flamingo' : 'hover:bg-surface0 active:bg-surface0'}
+				" 
+				href={link.url}
+				>
+				<span
+					class="{$page.url.pathname === link.url ? 'text-base' : 'text-flamingo'}"
+				>{link.title}</span>
+			</a>
+		{/each}
+		</nav>
+	</div>	
+</header>
+<header class="invisible md:visible flex justify-center w-screen ">
 	<div class="flex-1"></div>
 	<nav class="justify-center inline-flex bg-mantle rounded-3xl gap-1">
 		{#each links as link}
