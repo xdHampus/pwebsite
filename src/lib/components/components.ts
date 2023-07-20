@@ -1,1 +1,0 @@
-export { Card } from "$lib/components/card/card";
