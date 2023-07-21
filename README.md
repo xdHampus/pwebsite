@@ -1,3 +1,3 @@
 # pwebsite
 
-my personal website, hosted at [xdhampus.com](https://xdhampus.com)
+my personal website, hosted at [xdHampus.com](https://xdHampus.com)
