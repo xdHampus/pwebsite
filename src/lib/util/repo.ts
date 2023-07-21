@@ -1,6 +1,6 @@
 export interface Repo {
-	title: string;
+	name: string;
 	description: string;
-	url: string;
+	html_url: string;
 	language: string;
 }

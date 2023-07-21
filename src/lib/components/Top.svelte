@@ -13,6 +13,7 @@
 		section {
 			align-self: flex-start;
 			max-width: 40%;
+			margin-left: 15%;
 		}
 	}
 </style>

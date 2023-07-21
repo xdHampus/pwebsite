@@ -1,50 +1,27 @@
 <script lang="ts">
 	import RepoCard from '$lib/elements/RepoCard.svelte';
 	import type { Repo } from '$lib/util/repo';
-
-	let repos: Repo[] = [
-		{
-			title: 'pwebsite',
-			description: 'My personal website.',
-			language: 'Svelte',
-			url: 'https://github.com/xdhampus/pwebsite'
-		},
-		{
-			title: 'pwebsite',
-			description: 'My personal website.',
-			language: 'Svelte',
-			url: 'https://github.com/xdhampus/pwebsite'
-		},
-		{
-			title: 'pwebsite',
-			description: 'My personal website.',
-			language: 'Svelte',
-			url: 'https://github.com/xdhampus/pwebsite'
-		},
-		{
-			title: 'pwebsite',
-			description: 'My personal website.',
-			language: 'Svelte',
-			url: 'https://github.com/xdhampus/pwebsite'
-		},
-		{
-			title: 'pwebsite',
-			description: 'My personal website.',
-			language: 'Svelte',
-			url: 'https://github.com/xdhampus/pwebsite'
-		},
-	];
+	import { onMount } from 'svelte';
+	
+	let repos: Repo[];
+	onMount(async () => {
+		const res = await fetch('https://api.github.com/users/xdHampus/repos');
+		repos = await res.json();
+	});
+	
 </script>
 
 <section id="code">
 	<h2>code</h2>
 
 	<div>
-		{#each repos as curRepo}
-			<div>
-				<RepoCard repo={curRepo} />
-			</div>
-		{/each}
+		{#if repos}
+			{#each repos as curRepo}
+				<div>
+					<RepoCard repo={curRepo} />
+				</div>
+			{/each}			
+		{/if}
 	</div>
 </section>
 

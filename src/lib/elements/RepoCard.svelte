@@ -6,17 +6,17 @@
 <div class="repo-card">
 	<div class="repo-card-header">
 		<p>
-			{repo.title}
+			{repo.name}
 		</p>
-		<a href={repo.url}>
+		<a href={repo.html_url}>
 			<img src="/icons/link-out.svg" alt="link" />
 		</a>
 	</div>
 	<span class="repo-card-description">
-		{repo.description}
+		{repo.description || 'No description provided.'}
 	</span>
 	<span class="repo-card-language">
-		{repo.language}
+		{repo.language || 'Unspecified language'}
 	</span>
 </div>
 
@@ -29,8 +29,9 @@
 		padding: 10px 10px 10px 10px;
 		display: flex;
 		flex-direction: column;
+		justify-content: space-around;
 		gap: 5px;
-		height: fit-content;
+		height: 80%;
 	}
 
 	.repo-card-header {

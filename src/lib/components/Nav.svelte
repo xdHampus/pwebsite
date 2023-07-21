@@ -48,7 +48,7 @@
     }
 
     nav a div {
-        padding: 6px 18px 1px 16px;
+        padding: 6px 22px;
         border-radius: 16px;
         background-color: var(--bg-2-stroke);
         align-items: center;
@@ -76,14 +76,18 @@
 
     }
     nav a:hover {
-        filter: brightness(1);
+        filter: brightness(1.1);
     }
     nav a:active {
-        filter: brightness(1);
+        filter: brightness(1.4);
     }
 
     @media (min-width: 768px) {
-
+        nav {
+            left: 25%;
+            width: 50%;
+            border-radius: 40px;
+        }
     }
 
 

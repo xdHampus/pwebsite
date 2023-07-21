@@ -11,7 +11,7 @@
 	section {
 		align-self: flex-end;
 		max-width: 40%;
-
+		margin-right: 5%;
 	}
 }
 </style>
