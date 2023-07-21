@@ -8,10 +8,10 @@
 
 <style lang="scss">
 	@media (min-width: 768px) {
-	section {
-		align-self: flex-end;
-		max-width: 40%;
-		margin-right: 5%;
+		section {
+			align-self: flex-end;
+			max-width: 40%;
+			margin-right: 5%;
+		}
 	}
-}
 </style>
