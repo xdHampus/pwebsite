@@ -7,6 +7,9 @@
 	onMount(async () => {
 		const res = await fetch('https://api.github.com/users/xdHampus/repos');
 		repos = await res.json();
+		repos.sort((a, b) => {
+			return new Date(a.pushed_at) < new Date(b.pushed_at) ? 1 : -1;
+		});
 	});
 </script>
 
